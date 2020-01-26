@@ -8,10 +8,13 @@ module.exports = {
 		{
 			name: 'timegeek',
 			script: './bin/www',
-			env_production: {
-				NODE_ENV: 'production'
+			env_local: {
+				FILE_PATH: '/Users/ten/Downloads'
 			},
-			max_memory_restart: '200M'
+			env_prod: {
+				FILE_PATH: '/home/ubuntu/www/project/timegeek-data'
+			},
+			max_memory_restart: '300M'
 		}
 	]
 }

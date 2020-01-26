@@ -3,7 +3,7 @@ const router = express.Router()
 const fs = require('fs-extra')
 const path = require('path')
 
-const baseDir = '/Users/ten/Downloads'
+const baseDir = process.env.FILE_PATH
 const baseConfDir = path.resolve(baseDir, 'conf.json')
 
 // 获取资源列表
