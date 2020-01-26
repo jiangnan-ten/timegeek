@@ -2,6 +2,7 @@ const del = require('del')
 const gulp = require('gulp')
 const path = require('path')
 const less = require('gulp-less')
+const cleanCss = require('gulp-clean-css')
 
 const paths = {
 	styles: {
@@ -26,7 +27,14 @@ function watch() {
 	gulp.watch(paths.styles.src, { ignoreInitial: false }, _compileLess)
 }
 
-function build() {}
+function build() {
+	del.sync(['public/css'])
+	return gulp
+		.src(paths.styles.src)
+		.pipe(less())
+		.pipe(cleanCss())
+		.pipe(gulp.dest(paths.styles.dest))
+}
 
 exports.watch = watch
 exports.build = build
