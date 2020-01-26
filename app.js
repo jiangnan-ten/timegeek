@@ -5,6 +5,7 @@ const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const lessMiddleware = require('less-middleware')
+const helmet = require('helmet')
 
 const app = express()
 
@@ -22,6 +23,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'art')
 
 // 中间件
+app.use(helmet())
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
