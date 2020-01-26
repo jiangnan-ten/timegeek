@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>{{ column }}</title>
+		<link rel="stylesheet" href="/css/index.css" />
+	</head>
+	<body>
+		<div class="box">
+			<div class="box-l nav">
+				<a class="logo" href="/">
+					<img src="/images/logo.png" alt="极客时间" />
+				</a>
+				<div class="nav-list">
+					<a class="nav-list-button nav-list-button--active" href="/">专栏</a>
+					<a class="nav-list-button">视频</a>
+				</div>
+			</div>
+			<div class="box-r">
+				<h1 class="column">专栏目录</h1>
+				<ul>
+					{{each data.files val}}
+					<li class="column-item">
+						<a href="/column/{{ column }}/{{ val }}">{{ val }}</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

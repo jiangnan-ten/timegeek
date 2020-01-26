@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>极客时间</title>
+    <link rel="stylesheet" href="/css/index.css" />
+
+  </head>
+	<body>
+		<div class="box">
+			<div class="box-l nav">
+				<a class="logo" href="/">
+					<img src="/images/logo.png" alt="极客时间" />
+				</a>
+				<div class="nav-list">
+					<a href="/" class="nav-list-button nav-list-button--active">专栏</a>
+					<a class="nav-list-button">视频</a>
+				</div>
+			</div>
+			<div class="box-r">
+				{{each resources val}}
+				<div class="card">
+					<div class="card-l">
+						<a href="/column/{{ val.dirName }}" target="__blank">
+							<img src="/images/{{ val.dirName }}.jpg" alt="" />
+						</a>
+					</div>
+					<div class="card-r">
+						<div class="card-head">
+							<a
+								href="/column/{{ val.dirName }}"
+								class="card-title"
+								target="__blank"
+								>{{ val.dirName }}</a
+							>
+							<span class="card-count">{{ val.count }}讲</span>
+						</div>
+
+						<div class="card-chapter">
+							{{each val.files.slice(0, 6) chapter}}
+							<a
+								href="/column/{{ val.dirName }}/{{ chapter }}"
+								class="card-chapter-item"
+								target="__blank"
+								>{{ chapter | chapterFilter }}</a
+							>
+							{{/each}}
+						</div>
+						<a
+							class="card-more"
+							href="/column/{{ val.dirName }}"
+							target="__blank"
+							>更多</a
+						>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</body>
+</html>
