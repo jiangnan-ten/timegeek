@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "DEBUG=timegeek:* nodemon ./bin/www",
     "local": "npx pm2 start ecosystem.config.js --env local",
+    "prod": "npx pm2 stop ecosystem.config.js --env prod",
+    "restart": "npx pm2 restart ecosystem.config.js --env prod",
     "stop": "npx pm2 stop ecosystem.config.js --env prod"
   },
   "dependencies": {
